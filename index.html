@@ -6,11 +6,78 @@
     <title>Made with Thimble</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <h1>Welcome to Thimble</h1>
-    <h2>Hoi hoi hoi hoi hoi hoi</h2>
-    <p>
-      Make something <strong>amazing</strong> with the web!
-    </p>
+  <body id='body'>
+    <h1>Met mij gaat het:</h1>
+    <h1 id='titel'></h1>
+
+    <div class="">
+      <button type="button" name="button" onclick="hoeGaatHet()">Hoe gaat het?</button>
+      <button type="button" name="button" onclick="hoeGaatHetKort()">Hoe gaat het (kort)</button>
+    </div>
+
+    <br>
+
+    <div class="">
+      <button type="button" name="button" onclick="jaOfNee()">Ok of cancel?</button>
+    </div>
+
+    <br>
+
+    <div class="">
+      <button type="button" name="button" onclick="login()">Login</button>
+    </div>
+
+
   </body>
+  <script type="text/javascript">
+
+    function hoeGaatHet(){
+      // We maken een variabele 'antwoord'
+      // We vragen iets aan de gebruiker met prompt()
+      // Wat de gebruiker intypt kennen we toe aan de variabele antwoord
+      var antwoord = prompt('Hoe gaat het?');
+
+      // We maken een variabele 'element'
+      // We selecteren het element die we willen veranderen
+      // We kennen het HTML element toe aan de variabele element
+      var element = document.getElementById('titel');
+
+      // Nu veranderen we de innerHTML van element naar de waarde van de variabele antwoord
+      element.innerHTML = antwoord;
+    }
+
+    function hoeGaatHetKort(){
+      // Het kan ook zonder tussenstapjes ;)
+      document.getElementById('titel').innerHTML = prompt('Hoe gaat het');
+    }
+
+    // Opdrachten:
+    // 1.) Wat doet de functie ja of nee? Schrijf comments bij de verschillende stappen
+    // Kijk voor een voorbeeld in de functie hoeGaat het
+    // 2.) Verander de functie jaOfNee:
+    // - Wanneer iemand op cancel drukt vraagt de webstie opnieuw: 'Mogen we deze hele site wissen?'
+    // - Zorg dat het net zo lang doorgaat tot iemand toch OK zegt
+
+    function jaOfNee(){
+      var toestemming = confirm('Mogen we deze hele site wissen?');
+
+      if (toestemming === true) {
+        document.getElementById('body').innerHTML = null;
+      }
+    }
+
+    // 3.) Maak een login systeem:
+    // Iemand drukt op de knop Login
+    // De website vraagt wat het wachtwoord is
+    // De website kijkt of het wachtwoord klopt
+    // Als het wachtwoord klopt laat de website een geheime boodschap zien
+    // Als het wachtwoord fout is geeft de website een waarschuwing
+    // BONUS: Als iemand 3 keer een fout antwoord geeft kan hij niet meer inloggen
+    // (tot hij de pagina refreshed ... )
+    
+    function login(){
+      alert('Dit is nog niet af');
+    }
+
+  </script>
 </html>
